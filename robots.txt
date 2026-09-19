@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://andy.living-the.life/sitemap.xml
