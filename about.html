@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-<div class="sb-stage">
+<div class="sb-stage sb-stage-6aafebef12440e0959225400">
   <div class="sb-page sb-page-6aafebef12440e0959225400">
     <nav class="sb-nav"><a href="about.html">About</a><a href="work.html">Work</a><a href="index.html">Home</a></nav>
     <div class="sb-element sb-el-el_mu9wmkj1_2_0_7rjm sb-heading"><div class="sb-text-content">A little about me</div></div>
@@ -49,11 +49,13 @@
   var page=document.querySelector('.sb-page');
   var stage=document.querySelector('.sb-stage');
   function fit(){
-    var s=Math.min(1, window.innerWidth/page.offsetWidth);
+    var width=page.offsetWidth || 1;
+    var s=Math.min(1, window.innerWidth/width);
     page.style.transform='scale('+s+')';
-    stage.style.height=(page.offsetHeight*s)+'px';
+    stage.style.height=Math.ceil(page.offsetHeight*s)+'px';
+    stage.style.minHeight='0';
   }
-  window.addEventListener('resize',fit);fit();
+  window.addEventListener('resize',fit,{passive:true});fit();
 })();
 </script>
 </body>
